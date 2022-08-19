@@ -1,4 +1,5 @@
 import "reflect-metadata"
+import "./bootstrap/telemetry.bootstrap"
 
 import { generateGraphqlServer } from "./bootstrap/apollo.bootstrap"
 import { start } from "./bootstrap/express.bootstrap"

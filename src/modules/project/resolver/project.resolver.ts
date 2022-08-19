@@ -1,9 +1,16 @@
-import { Resolver } from "type-graphql"
-import { Service } from "typedi"
+import { Arg, Query, Resolver } from "type-graphql"
+import { Inject, Service } from "typedi"
 
-import { Trace } from "../../../utils/logger/trace.util"
+import { ProjectService } from "../service/project.service"
 
-@Trace({ perf: true, logInput: { enabled: true, beautify: true } })
 @Service()
 @Resolver()
-export class ProjectResolver {}
+export class ProjectResolver {
+  @Inject()
+  projectService: ProjectService
+
+  @Query(() => Boolean, { name: "ORGExistUser" })
+  async existUser(@Arg("filter") existUserDto: string): Promise<boolean> {
+    return this.projectService.existUser(existUserDto)
+  }
+}
