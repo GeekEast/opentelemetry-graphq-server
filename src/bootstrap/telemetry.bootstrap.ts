@@ -1,7 +1,6 @@
 import { getNodeAutoInstrumentations } from "@opentelemetry/auto-instrumentations-node"
 import { JaegerExporter } from "@opentelemetry/exporter-jaeger"
 import { registerInstrumentations } from "@opentelemetry/instrumentation"
-import { GraphQLInstrumentation } from "@opentelemetry/instrumentation-graphql"
 import { Resource } from "@opentelemetry/resources"
 import { SimpleSpanProcessor } from "@opentelemetry/sdk-trace-base"
 import { NodeTracerProvider } from "@opentelemetry/sdk-trace-node"
